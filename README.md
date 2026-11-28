@@ -8,3 +8,8 @@ Proyek pembelajaran Rekayasa Perangkat Lunak.
 ## Developer
 Nama: Hildan Putra Dharma
 Email: hildanputrad@gmail.com
+
+## Collab Tugas Slide 17
+- Nama Mahasisws:
+    Dion Tulus Fredo Marbun
+    Hildan Putra Dharma
