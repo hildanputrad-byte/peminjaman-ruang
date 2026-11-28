@@ -1,42 +1,138 @@
 <!DOCTYPE html>
 <html lang="id">
- <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peminjaman Ruang Kampus</title>
- </head>
- <body>
-    <h1>Sistem Peminjaman Ruang Kampus</h1>
-    <p>Selamat datang di aplikasi peminjaman ruang.</p>
+    <title>Sistem Peminjaman Ruang Kampus</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin: 0;
+        }
+        .btn-login {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .btn-login:hover {
+            background-color: #2980b9;
+        }
+        h2 {
+            font-size: 18px;
+            color: #34495e;
+            margin-top: 20px;
+        }
+        ul {
+            padding-left: 20px;
+            color: #555;
+        }
+        form label {
+            font-weight: 600;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 6px;
+        }
+        form input[type="text"],
+        form input[type="date"],
+        form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-submit:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
 
-    <h2>Menu</h2>
-    <ul>
-        <li>Daftar Ruang</li>
-        <li>Pengajuan Peminjaman</li>
-        <li>Status Pengajuan</li>
-    </ul>
-    <h2>Form Pengajuan Peminjaman</h2>
-    <form>
-         <label>Nama Mahasiswa</label>
-         <input type="text" placeholder="Masukkan nama">
+    <div class="container">
+        <header>
+            <h1>Peminjaman Ruang</h1>
+            <!-- Mengarahkan ke folder auth/login.html tempat file login Dion berada -->
+            <a href="auth/login.html" class="btn-login">Login Mahasiswa</a>
+        </header>
 
-         <br><br>
+        <p>Selamat datang di aplikasi sistem peminjaman ruang kampus.</p>
 
-         <label>Nama Ruang</label>
-         <select>
-               <option>Ruang 101</option>
-               <option>Ruang 202</option>
-               <option>Laboratorium 1</option>
-         </select>
+        <h2>Menu Utama</h2>
+        <ul>
+            <li>Daftar Ruang</li>
+            <li>Pengajuan Peminjaman</li>
+            <li>Status Pengajuan</li>
+        </ul>
 
-         <br><br>
- 
-         <label>Tanggal Peminjaman</label>
-         <input type="date">
+        <h2>Form Pengajuan Peminjaman</h2>
+        <form>
+            <label>Nama Mahasiswa</label>
+            <input type="text" placeholder="Masukkan nama lengkap" required>
 
-         <br><br>
+            <br><br>
 
-         <button type="button">Ajukan Peminjaman</button>
-  </form>
- </body>
+            <label>Nama Ruang</label>
+            <select required>
+                <option value="" disabled selected>Pilih ruang...</option>
+                <option>Ruang 101</option>
+                <option>Ruang 202</option>
+                <option>Laboratorium 1</option>
+            </select>
+
+            <br><br>
+    
+            <label>Tanggal Peminjaman</label>
+            <input type="date" required>
+
+            <br><br>
+
+            <button type="button" class="btn-submit" onclick="alert('Formulir berhasil diajukan!')">Ajukan Peminjaman</button>
+        </form>
+    </div>
+
+</body>
 </html>
