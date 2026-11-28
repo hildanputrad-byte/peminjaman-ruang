@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Peminjaman Ruang Kampus</title>
+    <title>Fitur Booking - Peminjaman Ruang Kampus</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -48,14 +48,8 @@
         .btn-login:hover {
             background-color: #2980b9;
         }
-        h2 {
-            font-size: 18px;
-            color: #34495e;
-            margin-top: 20px;
-        }
-        ul {
-            padding-left: 20px;
-            color: #555;
+        .form-group {
+            margin-bottom: 15px;
         }
         form label {
             font-weight: 600;
@@ -65,13 +59,18 @@
         }
         form input[type="text"],
         form input[type="date"],
-        form select {
+        form select,
+        form textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 14px;
             box-sizing: border-box;
+        }
+        form textarea {
+            resize: vertical;
+            height: 80px;
         }
         .btn-submit {
             background-color: #2ecc71;
@@ -94,45 +93,59 @@
 
     <div class="container">
         <header>
-            <h1>Peminjaman Ruang</h1>
-            <!-- Mengarahkan ke folder auth/login.html tempat file login Dion berada -->
+            <h1>Formulir Booking Ruangan</h1>
             <a href="auth/login.html" class="btn-login">Login Mahasiswa</a>
         </header>
 
-        <p>Selamat datang di aplikasi sistem peminjaman ruang kampus.</p>
+        <p>Silakan isi data di bawah ini untuk mengajukan peminjaman ruang kampus secara online.</p>
 
-        <h2>Menu Utama</h2>
-        <ul>
-            <li>Daftar Ruang</li>
-            <li>Pengajuan Peminjaman</li>
-            <li>Status Pengajuan</li>
-        </ul>
+        <!-- Form Fitur Booking -->
+        <form id="bookingForm" onsubmit="handleBooking(event)">
+            <div class="form-group">
+                <label>Nama Peminjam</label>
+                <input type="text" id="nama" placeholder="Masukkan nama lengkap" required>
+            </div>
 
-        <h2>Form Pengajuan Peminjaman</h2>
-        <form>
-            <label>Nama Mahasiswa</label>
-            <input type="text" placeholder="Masukkan nama lengkap" required>
+            <div class="form-group">
+                <label>NPM / Identitas</label>
+                <input type="text" id="npm" placeholder="Masukkan NPM Anda" required>
+            </div>
 
-            <br><br>
+            <div class="form-group">
+                <label>Pilihan Ruangan</label>
+                <select id="ruangan" required>
+                    <option value="" disabled selected>Pilih ruang kampus...</option>
+                    <option value="Ruang 101">Ruang 101 - Teori</option>
+                    <option value="Ruang 202">Ruang 202 - Seminar</option>
+                    <option value="Laboratorium 1">Laboratorium Komputer 1</option>
+                </select>
+            </div>
 
-            <label>Nama Ruang</label>
-            <select required>
-                <option value="" disabled selected>Pilih ruang...</option>
-                <option>Ruang 101</option>
-                <option>Ruang 202</option>
-                <option>Laboratorium 1</option>
-            </select>
+            <div class="form-group">
+                <label>Tanggal Peminjaman</label>
+                <input type="date" id="tanggal" required>
+            </div>
 
-            <br><br>
-    
-            <label>Tanggal Peminjaman</label>
-            <input type="date" required>
+            <div class="form-group">
+                <label>Keperluan / Kegiatan</label>
+                <textarea id="keperluan" placeholder="Contoh: Rapat kerja kelompok Karang Taruna / Diskusi Tugas RPL" required></textarea>
+            </div>
 
-            <br><br>
-
-            <button type="button" class="btn-submit" onclick="alert('Formulir berhasil diajukan!')">Ajukan Peminjaman</button>
+            <button type="submit" class="btn-submit">Ajukan Booking Ruangan</button>
         </form>
     </div>
+
+    <script>
+        function handleBooking(event) {
+            event.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const ruang = document.getElementById('ruangan').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            alert(`Terima kasih, ${nama}! Pengajuan booking untuk ${ruang} pada tanggal ${tanggal} berhasil dikirim.`);
+            document.getElementById('bookingForm').reset();
+        }
+    </script>
 
 </body>
 </html>
